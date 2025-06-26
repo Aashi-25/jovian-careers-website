@@ -21,7 +21,7 @@
 <body>
     <div class ="container">
 
-        <h1 class="text-center mt-2 mb-4">Jovian Careers</h1>
+        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
         <img class="img-fluid" id="banner" src="http://127.0.0.1:5500/static/banner.jpeg">
 
         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing
@@ -41,7 +41,12 @@
             in iste quos asperiores cumque, sint impedit unde sit quisquam, vero officia nisi recusandae reprehenderit.
         </p>
         <h2 class="text-center mt-2 mb-4">Open Positions</h2>
-        <p>TODO - Show the jobs here</p>
+        <p>
+            <!-- using for loop in template -->
+            {% for job in jobs %} 
+                {%include 'jobItem.html'%}
+            {% endfor %}
+        </p>
         <div class="text-center">
             <button class="btn btn-primary btn-lg">Contact Us</button>
             <p class="mt-4">Copyright 2025, Jovian</p>
