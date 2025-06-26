@@ -1,4 +1,4 @@
-from flask import Flask , render_template
+from flask import Flask , render_template , jsonify
 
 app = Flask(__name__) #creates the flask app but doesn't run it
 
@@ -31,7 +31,11 @@ JOBS = [
 
 @app.route("/") #registered a route for flask application
 def hello_world():
-    return render_template('home.html' , jobs = JOBS , company_name = 'Jovian')
+    return render_template('home.html' , jobs = JOBS ,  company_name = 'Jovian')
+
+@app.route("/api/jobs") #json endpoint
+def list_jobs():
+    return jsonify(JOBS)
 
 if __name__ == '__main__':
     app.run(debug = True)
