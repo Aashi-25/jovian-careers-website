@@ -1,15 +1,33 @@
-<div class="border-bottom row" style="margin-bottom: 16px;">
-    <div class="col-10">
-        <h4 style="color: rgb(120,120,120); margin-bottom:4px; padding-bottom: 8px;">
-            {{job ['title']}}</h4>
-        <div><b>Location:</b> {{job['location']}}</div>
-        {% if 'salary' in job %}
-        <div><b>Salary:</b> {{job['salary']}}</div>
-        {% endif %}
-    </div>
-    <div class="col-1 d-flex align-items-center justify-content-center h-100">
-        <button type="button" class="btn btn-outline-primary">
-            Apply
-        </button>
+<div class="job-card">
+    <div class="d-flex justify-content-between align-items-start">
+        <div class="flex-grow-1">
+            <h4 class="job-title">{{job['title']}}</h4>
+            <div class="job-meta">
+                <div class="mb-2">
+                    <i class="fas fa-map-marker-alt me-2 text-success"></i>
+                    <span>{{job['location']}}</span>
+                </div>
+                {% if 'salary' in job %}
+                <div class="mb-2">
+                    <i class="fas fa-money-bill-wave me-2 text-success"></i>
+                    <span class="salary-badge">{{job['salary']}}</span>
+                </div>
+                {% endif %}
+                <div class="mb-2">
+                    <i class="fas fa-clock me-2 text-info"></i>
+                    <span>Full-time</span>
+                </div>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <span class="badge bg-light text-dark">Remote</span>
+                <span class="badge bg-light text-dark">Flexible</span>
+                <span class="badge bg-light text-dark">Benefits</span>
+            </div>
+        </div>
+        <div class="ms-3">
+            <button type="button" class="btn btn-primary btn-sm">
+                <i class="fas fa-paper-plane me-1"></i>Apply
+            </button>
+        </div>
     </div>
 </div>

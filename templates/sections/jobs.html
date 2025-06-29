@@ -1,0 +1,22 @@
+<section class="py-5 bg-light" id="jobs">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Latest Job Openings</h2>
+            <p class="section-subtitle">Discover exciting opportunities that match your skills and career goals</p>
+        </div>
+
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-lg-6 mb-3">
+                {%include 'jobItem.html'%}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-primary btn-lg">
+                <i class="fas fa-eye me-2"></i>View All Jobs
+            </button>
+        </div>
+    </div>
+</section>

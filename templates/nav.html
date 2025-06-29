@@ -1,11 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-translucent" id="mainNavbar" aria-label="Fifth navbar example">
+    <div class="container"> 
+        <a class="navbar-brand fw-bold" href="#">
+            <span class="text-primary">Jovian</span> Careers
+        </a> 
+        <button class="navbar-toggler"
+            type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05"
+            aria-expanded="false" aria-label="Toggle navigation"> 
+            <span class="navbar-toggler-icon"></span> 
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> 
+                    <a class="nav-link active" aria-current="page" href="#">Home</a> 
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link" href="#jobs">Jobs</a> 
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link" href="#about">About</a> 
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link" href="#contact">Contact</a> 
+                </li>
+            </ul>
+            <div class="d-flex gap-2 flex-wrap">
+                <button class="btn btn-outline-light btn-sm">Sign In</button>
+                <button class="btn btn-primary btn-sm">Post a Job</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navbar-translucent {
+    transition: all 0.3s ease;
+}
+
+.navbar-translucent.scroll-down {
+    background-color: rgba(33, 37, 41, 0.75) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-gold) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(33, 37, 41, 0.98);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+    }
     
-</body>
-</html>
+    .navbar-nav {
+        margin-bottom: 1rem !important;
+    }
+    
+    .d-flex.gap-2 {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .d-flex.gap-2 .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+}
+</style>
+
+<script>
+let lastScrollTop = 0;
+const navbar = document.getElementById('mainNavbar');
+const heroHeight = 500; // Increased for better hero section
+
+// Prevent page from scrolling to bottom on reload
+window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+});
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // If we're in the hero section (top of page), keep navbar solid
+    if (scrollTop <= heroHeight) {
+        navbar.classList.remove('scroll-down');
+    } else {
+        // Below hero section, make navbar translucent
+        navbar.classList.add('scroll-down');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+</script>

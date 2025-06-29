@@ -4,55 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jovian Careers</title>
-    <style>
-        #banner {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
-        }
+    <title>Jovian Careers - Find Your Dream Job</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-    </style>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="{{ url_for('static' , filename = 'css/styles.css')}}">
 </head>
 
 <body>
-    <div class ="container">
+    {% include 'nav.html' %}
+    {% block content %}
+        {% include 'sections/hero.html' %}
+        {% include 'sections/stats.html' %}
+        {% include 'sections/features.html' %}
+        {% include 'sections/about.html' %}
+        {% include 'sections/jobs.html' %}
+        {% include 'sections/cta.html' %}
+    {% endblock %}
+    {% include 'footer.html' %}
 
-        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
-        <img class="img-fluid" id="banner" src="http://127.0.0.1:5500/static/banner.jpeg">
-
-        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Aspernatur quae harum inventore corporis animi
-            perspiciatis aliquam neque optio quam. Quae incidunt ipsum totam ad nisi architecto excepturi maxime labore
-            possimus!
-            Porro expedita sunt est tenetur? Atque cupiditate blanditiis, sequi libero, repellat alias nemo veniam,
-            voluptatibus exercitationem ea distinctio aliquid perferendis placeat ipsum beatae tempora! Commodi at
-            necessitatibus aliquid possimus itaque.
-            Assumenda deserunt asperiores temporibus autem. Molestias nobis officia vero dolorum eaque dolore. Animi
-            facilis odit aliquid earum illum culpa iste error, quam dolorum illo quidem ipsa incidunt quo delectus
-            rerum.
-            Vitae cum consequuntur dolorem consectetur esse quidem. Nobis, error eos maxime ullam facilis architecto
-            explicabo eligendi delectus provident inventore deserunt aut. Cupiditate labore aperiam fugiat obcaecati
-            neque perferendis, doloribus quisquam?
-            Adipisci dolorem assumenda, nemo aperiam earum iste aspernatur, animi illum ab alias quibusdam? Vitae quae
-            in iste quos asperiores cumque, sint impedit unde sit quisquam, vero officia nisi recusandae reprehenderit.
-        </p>
-        <h2 class="text-center mt-2 mb-4">Job Openings</h2>
-        <p>
-            <!-- using for loop in template -->
-            {% for job in jobs %} 
-                {%include 'jobItem.html'%}
-            {% endfor %}
-        </p>
-        <div class="text-center">
-            <button class="btn btn-primary btn-lg">Contact Us</button>
-            <p class="mt-4">Copyright 2025, Jovian</p>
-        </div>
-
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
