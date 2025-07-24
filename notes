@@ -1,0 +1,2 @@
+SqlAlchemy is a python library that helps users talk to databases like supabase(Postgresql in the cloud).
+Users write python code..sqlAlchemy converts it to raw sql to use in databases

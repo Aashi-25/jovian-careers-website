@@ -1,4 +1,8 @@
 from flask import Flask , render_template , jsonify
+from database import app,db
+from sqlalchemy import text
+
+
 
 app = Flask(__name__) #creates the flask app but doesn't run it
 
