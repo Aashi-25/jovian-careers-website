@@ -1,17 +1,18 @@
+import os
 from flask import has_app_context
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+from dotenv import load_dotenv
 
+load_dotenv()
 
 db = SQLAlchemy()
 
 def init_db(app):
     """Bind SQLAlchemy to the passed Flask app and configure it."""
-    app.config.setdefault(
-        "SQLALCHEMY_DATABASE_URI",
-        "postgresql://postgres:goel_aashi_25@db.djoowctsfbugwodshmas.supabase.co:5432/postgres"
-    )
-    app.config.setdefault("SQLALCHEMY_TRACK_MODIFICATIONS", False)
+    db_url = os.getenv("DATABASE_URL")
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_url
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
 
 def load_jobs_from_db():

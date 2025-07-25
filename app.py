@@ -40,7 +40,7 @@ def hello_world():
 
 @app.route("/api/jobs") #json endpoint
 def list_jobs():
-    return jsonify(JOBS)
+    return jsonify(load_jobs_from_db)
 
 if __name__ == '__main__':
     app.run(debug = True)
