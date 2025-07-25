@@ -1,2 +1,4 @@
 Flask
 gunicorn
+sqlAlchemy
+pymysql
