@@ -1,5 +1,5 @@
 from flask import Flask , render_template , jsonify , request
-from database import init_db , load_jobs_from_db , load_jobs_by_id
+from database import init_db , load_jobs_from_db , load_jobs_by_id , add_application_to_db
 
 
 app = Flask(__name__) #creates the flask app but doesn't run it
@@ -51,11 +51,15 @@ def show_job(id):
 
 @app.route("/job/<id>/apply" , methods=['post'])
 def apply_to_job(id):
-    # store this in db
+
+    # store this in db (done)
     # send an email
     # display an acknowledgement
+
     data = request.form
-    return jsonify(data)
+    add_application_to_db(id , data)
+    job = load_jobs_by_id(id)
+    return render_template('application_submitted.html' , application = data , job = job)
 
 if __name__ == '__main__':
     app.run(debug = True)
